@@ -1,49 +1,34 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import './globals.css'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "TradeConnect | Find the Best Trade Professionals for Your Home Projects",
-  description: "TradeConnect helps you find qualified trade professionals for your home improvement projects. Get matched with the best professionals in your area.",
-  keywords: "trade professionals, home improvement, contractors, plumbers, electricians, carpenters, home projects, local tradespeople",
-  authors: [{ name: "TradeConnect Team" }],
-  creator: "TradeConnect",
-  publisher: "TradeConnect",
-  formatDetection: {
-    email: false,
-    telephone: false,
-  },
-  metadataBase: new URL("https://trade-connect-project.vercel.app"),
-  alternates: {
-    canonical: "/",
-  },
+  title: 'TradeConnect | Find the Best Trade Professionals for Your Home Projects',
+  description: 'TradeConnect helps you find qualified trade professionals for your home improvement projects. Get quotes from trusted local tradesmen.',
+  keywords: 'trade professionals, home improvement, plumber, electrician, carpenter, painter, roofer, landscaper',
   openGraph: {
-    title: "TradeConnect | Find the Best Trade Professionals",
-    description: "Get matched with qualified trades in your area for all your home improvement projects.",
-    url: "https://trade-connect-project.vercel.app",
-    siteName: "TradeConnect",
-    locale: "en_US",
-    type: "website",
+    title: 'TradeConnect | Find the Best Trade Professionals',
+    description: 'Connect with qualified trade professionals for your home improvement projects',
+    url: 'https://trade-connect-project.vercel.app',
+    siteName: 'TradeConnect',
     images: [
       {
-        url: "/logo.png",
-        width: 200,
-        height: 60,
-        alt: "TradeConnect Logo",
+        url: 'https://trade-connect-project.vercel.app/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'TradeConnect Logo',
       },
     ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "TradeConnect | Find the Best Trade Professionals",
-    description: "Get matched with qualified trades in your area for all your home improvement projects.",
-    images: ["/logo.png"],
+    card: 'summary_large_image',
+    title: 'TradeConnect | Find the Best Trade Professionals',
+    description: 'Connect with qualified trade professionals for your home improvement projects',
+    images: ['https://trade-connect-project.vercel.app/logo.png'],
   },
   robots: {
     index: true,
@@ -51,27 +36,47 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-};
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#0047AB" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "TradeConnect",
+              "url": "https://trade-connect-project.vercel.app",
+              "logo": "https://trade-connect-project.vercel.app/logo.png",
+              "description": "TradeConnect helps you find qualified trade professionals for your home improvement projects.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-555-123-4567",
+                "contactType": "customer service"
+              },
+              "sameAs": [
+                "https://facebook.com/tradeconnect",
+                "https://twitter.com/tradeconnect",
+                "https://instagram.com/tradeconnect"
+              ]
+            })
+          }}
+        />
       </head>
-      <body className="antialiased">
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
-  );
+  )
 }

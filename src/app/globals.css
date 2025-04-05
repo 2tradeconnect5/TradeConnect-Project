@@ -13,101 +13,44 @@ body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
-.container-custom {
-  width: 100%;
-  max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
-}
+@layer components {
+  .container-custom {
+    @apply w-full max-w-6xl mx-auto;
+  }
 
-.btn-primary {
-  background-color: #22c55e;
-  color: white;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  transition-property: background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
+  .btn-primary {
+    @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition-colors;
+  }
 
-.btn-primary:hover {
-  background-color: #16a34a;
-}
+  .btn-secondary {
+    @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition-colors;
+  }
 
-.btn-secondary {
-  background-color: #22c55e;
-  color: white;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  transition-property: background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
+  .btn-outline {
+    @apply border border-green-600 text-green-600 hover:bg-green-50 font-semibold py-2 px-4 rounded transition-colors;
+  }
 
-.btn-secondary:hover {
-  background-color: #16a34a;
-}
+  .numbered-step {
+    @apply flex items-center justify-center w-12 h-12 rounded-full text-white font-bold text-xl bg-green-600;
+  }
 
-.btn-outline {
-  border: 1px solid #22c55e;
-  color: #22c55e;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  transition-property: background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
+  .benefit-item {
+    @apply flex items-start mb-4;
+  }
 
-.btn-outline:hover {
-  background-color: #f0fdf4;
-}
+  .benefit-icon {
+    @apply h-6 w-6 text-green-500 mr-2 flex-shrink-0;
+  }
 
-.numbered-step {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 9999px;
-  color: white;
-  font-weight: 700;
-  font-size: 1.25rem;
-  background-color: #22c55e;
-}
+  .section-title {
+    @apply text-3xl font-bold mb-6 text-gray-800;
+  }
 
-.benefit-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-md;
+  }
 
-.benefit-icon {
-  height: 1.5rem;
-  width: 1.5rem;
-  color: #22c55e;
-  margin-right: 0.5rem;
-  flex-shrink: 0;
-}
-
-.section-title {
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #1f2937;
-}
-
-.card {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.professional-section {
-  background-color: #eff6ff;
-  padding: 2rem;
-  border-radius: 0.5rem;
+  .professional-section {
+    @apply bg-blue-50 p-8 rounded-lg;
+  }
 }
