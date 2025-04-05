@@ -13,7 +13,9 @@ const TRADE_TYPES = [
   'roofer',
   'landscaper',
   'hvac',
-  'general'
+  'general',
+  'mason',
+  'tiler'
 ] as const;
 
 // Form validation schema without using z.enum for tradeTypes
@@ -105,7 +107,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
       {formSubmitted ? (
         <div className="bg-green-50 border border-green-200 text-green-800 rounded-lg p-4 mb-6">
           <h3 className="font-bold">Thank you for registering!</h3>
-          <p>Your application has been submitted and is pending verification. We'll be in touch soon.</p>
+          <p>Your application has been submitted and is pending verification. We&apos;ll be in touch soon.</p>
         </div>
       ) : null}
       
@@ -121,7 +123,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             {...register('fullName')}
           />
           {errors.fullName && (
-            <p className="text-red-500 text-sm">{errors.fullName.message}</p>
+            <p className="text-red-500 text-sm">{errors.fullName.message?.toString()}</p>
           )}
         </div>
 
@@ -136,7 +138,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             {...register('companyName')}
           />
           {errors.companyName && (
-            <p className="text-red-500 text-sm">{errors.companyName.message}</p>
+            <p className="text-red-500 text-sm">{errors.companyName.message?.toString()}</p>
           )}
         </div>
 
@@ -151,7 +153,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             {...register('companyAddress')}
           ></textarea>
           {errors.companyAddress && (
-            <p className="text-red-500 text-sm">{errors.companyAddress.message}</p>
+            <p className="text-red-500 text-sm">{errors.companyAddress.message?.toString()}</p>
           )}
         </div>
 
@@ -166,7 +168,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             {...register('email')}
           />
           {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email.message}</p>
+            <p className="text-red-500 text-sm">{errors.email.message?.toString()}</p>
           )}
         </div>
 
@@ -181,7 +183,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             {...register('phoneNumber')}
           />
           {errors.phoneNumber && (
-            <p className="text-red-500 text-sm">{errors.phoneNumber.message}</p>
+            <p className="text-red-500 text-sm">{errors.phoneNumber.message?.toString()}</p>
           )}
         </div>
 
@@ -196,7 +198,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             {...register('whatsappNumber')}
           />
           {errors.whatsappNumber && (
-            <p className="text-red-500 text-sm">{errors.whatsappNumber.message}</p>
+            <p className="text-red-500 text-sm">{errors.whatsappNumber.message?.toString()}</p>
           )}
         </div>
 
@@ -212,7 +214,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             {...register('website')}
           />
           {errors.website && (
-            <p className="text-red-500 text-sm">{errors.website.message}</p>
+            <p className="text-red-500 text-sm">{errors.website.message?.toString()}</p>
           )}
         </div>
 
@@ -288,7 +290,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             ))}
           </div>
           {errors.tradeTypes && (
-            <p className="text-red-500 text-sm">{errors.tradeTypes.message}</p>
+            <p className="text-red-500 text-sm">{errors.tradeTypes.message?.toString()}</p>
           )}
         </div>
 
@@ -305,7 +307,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
           />
           <p className="text-sm text-gray-500">Upload a photo ID for verification purposes (not visible to clients)</p>
           {errors.photoId && (
-            <p className="text-red-500 text-sm">{errors.photoId.message}</p>
+            <p className="text-red-500 text-sm">{errors.photoId.message?.toString()}</p>
           )}
         </div>
 
@@ -322,7 +324,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
             </label>
           </div>
           {errors.termsAccepted && (
-            <p className="text-red-500 text-sm">{errors.termsAccepted.message}</p>
+            <p className="text-red-500 text-sm">{errors.termsAccepted.message?.toString()}</p>
           )}
         </div>
 
@@ -336,7 +338,7 @@ export default function TradeRegistrationForm({ onSubmit, isSubmitting = false }
       </form>
 
       <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-        <h3 className="font-bold text-lg mb-2">After registration, you'll receive:</h3>
+        <h3 className="font-bold text-lg mb-2">After registration, you&apos;ll receive:</h3>
         <ul className="list-disc pl-5 space-y-1">
           <li>A 30-day free trial with full access to all leads</li>
           <li>After the trial, billing activates at €59/month + €3 per accepted lead</li>

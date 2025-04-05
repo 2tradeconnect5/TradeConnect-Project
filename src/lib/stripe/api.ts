@@ -39,7 +39,7 @@ export async function createPaymentIntent({
     });
     
     // Store the payment intent in Supabase for tracking
-    const { data, error } = await supabase.from('payments').insert({
+    const { error } = await supabase.from('payments').insert({
       user_id: userId,
       amount,
       currency,
@@ -84,7 +84,7 @@ export async function createSubscription({
     });
     
     // Store the subscription in Supabase for tracking
-    const { data, error } = await supabase.from('subscriptions').insert({
+    const { error } = await supabase.from('subscriptions').insert({
       trade_id: userId,
       stripe_subscription_id: `sub_mock_${Date.now()}`,
       status: 'active',

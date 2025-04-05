@@ -13,18 +13,36 @@ export type TradeType =
   | 'roofer' 
   | 'landscaper' 
   | 'hvac' 
-  | 'general';
+  | 'general'
+  | 'mason'
+  | 'tiler';
 
-  export type JobUrgency = 
+export type JobUrgency = 
   | 'emergency' 
   | 'urgent' 
   | 'standard' 
   | 'flexible';
 
-  export type ContactMethod = 
+export type ContactMethod = 
   | 'phone' 
   | 'email' 
   | 'whatsapp';
+
+export enum PaymentType {
+  SUBSCRIPTION = 'subscription',
+  LEAD = 'lead',
+  CREDIT = 'credit',
+  CREDITS = 'credits'
+}
+
+export enum NotificationType {
+  NEW_LEAD = 'new_lead',
+  LEAD_ACCEPTED = 'lead_accepted',
+  PAYMENT_RECEIVED = 'payment_received',
+  SUBSCRIPTION_RENEWED = 'subscription_renewed',
+  ACCOUNT_VERIFIED = 'account_verified',
+  JOB_COMPLETED = 'job_completed'
+}
 
 export interface Trade {
   id: string;

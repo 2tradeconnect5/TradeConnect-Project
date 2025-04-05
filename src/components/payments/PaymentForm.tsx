@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import type { StripeElementsOptions } from '@stripe/stripe-js';
+import { PaymentType } from '@/types';
 
 // Mock Stripe promise for development
 const stripePromise = loadStripe('pk_test_placeholder');
 
 interface PaymentFormProps {
   amount: number;
-  paymentType: 'subscription' | 'lead' | 'credits';
+  paymentType: PaymentType.SUBSCRIPTION | PaymentType.LEAD | PaymentType.CREDITS;
   onSuccess?: (paymentId: string) => void;
   onError?: (error: Error) => void;
 }
@@ -69,11 +70,11 @@ export default function PaymentForm({
 
   const getPaymentTypeLabel = () => {
     switch (paymentType) {
-      case 'subscription':
+      case PaymentType.SUBSCRIPTION:
         return 'Monthly Subscription';
-      case 'lead':
+      case PaymentType.LEAD:
         return 'Lead Payment';
-      case 'credits':
+      case PaymentType.CREDITS:
         return 'Credit Purchase';
       default:
         return 'Payment';
@@ -94,9 +95,9 @@ export default function PaymentForm({
             </div>
             <h3 className="text-lg font-medium text-gray-900 mb-2">Payment Successful!</h3>
             <p className="text-gray-600">
-              {paymentType === 'subscription' 
+              {paymentType === PaymentType.SUBSCRIPTION 
                 ? 'Your subscription has been activated.' 
-                : paymentType === 'lead' 
+                : paymentType === PaymentType.LEAD 
                 ? 'Lead payment has been processed.' 
                 : 'Credits have been added to your account.'}
             </p>

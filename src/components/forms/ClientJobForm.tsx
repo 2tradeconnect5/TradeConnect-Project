@@ -61,12 +61,12 @@ export default function ClientJobForm({ onSubmit, isSubmitting = false }: Client
   return (
     <div className="w-full max-w-2xl mx-auto">
       <h2 className="text-2xl font-bold mb-6">Post a Job</h2>
-      <p className="mb-6">Fill out the form below with details about your project. We'll match you with the best local tradesmen for the job.</p>
+      <p className="mb-6">Fill out the form below with details about your project. We&apos;ll match you with the best local tradesmen for the job.</p>
       
       {formSubmitted ? (
         <div className="bg-green-50 border border-green-200 text-green-800 rounded-lg p-4 mb-6">
           <h3 className="font-bold">Thank you for submitting your job!</h3>
-          <p>We're matching you with the best trades in your area. You'll be notified soon.</p>
+          <p>We&apos;re matching you with the best trades in your area. You&apos;ll be notified soon.</p>
         </div>
       ) : null}
       
@@ -93,7 +93,7 @@ export default function ClientJobForm({ onSubmit, isSubmitting = false }: Client
             <option value="general">General Contractor</option>
           </select>
           {errors.tradeType && (
-            <p className="text-red-500 text-sm">{errors.tradeType.message}</p>
+            <p className="text-red-500 text-sm">{errors.tradeType.message?.toString()}</p>
           )}
         </div>
 
@@ -109,7 +109,7 @@ export default function ClientJobForm({ onSubmit, isSubmitting = false }: Client
             {...register('jobDescription')}
           ></textarea>
           {errors.jobDescription && (
-            <p className="text-red-500 text-sm">{errors.jobDescription.message}</p>
+            <p className="text-red-500 text-sm">{errors.jobDescription.message?.toString()}</p>
           )}
         </div>
 
@@ -129,7 +129,7 @@ export default function ClientJobForm({ onSubmit, isSubmitting = false }: Client
             <option value="flexible">Flexible (2+ weeks)</option>
           </select>
           {errors.jobUrgency && (
-            <p className="text-red-500 text-sm">{errors.jobUrgency.message}</p>
+            <p className="text-red-500 text-sm">{errors.jobUrgency.message?.toString()}</p>
           )}
         </div>
 
@@ -148,7 +148,7 @@ export default function ClientJobForm({ onSubmit, isSubmitting = false }: Client
             <option value="whatsapp">WhatsApp</option>
           </select>
           {errors.contactMethod && (
-            <p className="text-red-500 text-sm">{errors.contactMethod.message}</p>
+            <p className="text-red-500 text-sm">{errors.contactMethod.message?.toString()}</p>
           )}
         </div>
 
@@ -164,7 +164,7 @@ export default function ClientJobForm({ onSubmit, isSubmitting = false }: Client
             {...register('location')}
           />
           {errors.location && (
-            <p className="text-red-500 text-sm">{errors.location.message}</p>
+            <p className="text-red-500 text-sm">{errors.location.message?.toString()}</p>
           )}
         </div>
 
