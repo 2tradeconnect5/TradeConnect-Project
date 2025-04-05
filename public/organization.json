@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TradeConnect",
+  "url": "https://trade-connect-project.vercel.app",
+  "logo": "https://trade-connect-project.vercel.app/logo.png",
+  "description": "TradeConnect helps you find qualified trade professionals for your home improvement projects.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-123-4567",
+    "contactType": "customer service"
+  },
+  "sameAs": [
+    "https://facebook.com/tradeconnect",
+    "https://twitter.com/tradeconnect",
+    "https://instagram.com/tradeconnect"
+  ]
+}

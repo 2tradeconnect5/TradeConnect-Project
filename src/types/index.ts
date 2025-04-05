@@ -31,8 +31,7 @@ export type ContactMethod =
 export enum PaymentType {
   SUBSCRIPTION = 'subscription',
   LEAD = 'lead',
-  CREDIT = 'credit',
-  CREDITS = 'credits'
+  CREDIT = 'credit'
 }
 
 export enum NotificationType {
@@ -42,6 +41,15 @@ export enum NotificationType {
   SUBSCRIPTION_RENEWED = 'subscription_renewed',
   ACCOUNT_VERIFIED = 'account_verified',
   JOB_COMPLETED = 'job_completed'
+}
+
+export interface ClientJobFormData {
+  tradeType: TradeType;
+  jobDescription: string;
+  jobUrgency: JobUrgency;
+  contactMethod: ContactMethod;
+  location: string;
+  budget?: string;
 }
 
 export interface Trade {

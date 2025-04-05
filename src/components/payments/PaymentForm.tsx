@@ -9,7 +9,7 @@ const stripePromise = loadStripe('pk_test_placeholder');
 
 interface PaymentFormProps {
   amount: number;
-  paymentType: PaymentType.SUBSCRIPTION | PaymentType.LEAD | PaymentType.CREDITS;
+  paymentType: PaymentType.SUBSCRIPTION | PaymentType.LEAD | PaymentType.CREDIT;
   onSuccess?: (paymentId: string) => void;
   onError?: (error: Error) => void;
 }
@@ -74,7 +74,7 @@ export default function PaymentForm({
         return 'Monthly Subscription';
       case PaymentType.LEAD:
         return 'Lead Payment';
-      case PaymentType.CREDITS:
+      case PaymentType.CREDIT:
         return 'Credit Purchase';
       default:
         return 'Payment';
