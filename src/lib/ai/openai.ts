@@ -1,14 +1,12 @@
-import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 
 // Initialize OpenAI client with API key
 // In production, this would be set in your environment
 const openaiApiKey = process.env.OPENAI_API_KEY || 'your-openai-api-key';
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: openaiApiKey,
 });
-
-const openai = new OpenAIApi(configuration);
 
 // Helper functions for OpenAI operations
 export async function matchJobToTrades(jobDescription: string, location: string, tradeType: string) {
@@ -23,14 +21,14 @@ export async function matchJobToTrades(jobDescription: string, location: string,
       Return a JSON array with trade IDs and match scores (0-100).
     `;
     
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
+    const response = await openai.completions.create({
+      model: "gpt-3.5-turbo-instruct",
       prompt,
       max_tokens: 500,
       temperature: 0.3,
     });
     
-    const text = response.data.choices[0]?.text || '';
+    const text = response.choices[0]?.text || '';
     
     // Extract JSON from response
     const jsonMatch = text.match(/\[.*\]/s);
@@ -108,14 +106,14 @@ export async function generateJobDescription(details: {
       The job description should be professional, clear, and include all necessary details for a trade professional.
     `;
     
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
+    const response = await openai.completions.create({
+      model: "gpt-3.5-turbo-instruct",
       prompt,
       max_tokens: 500,
       temperature: 0.7,
     });
     
-    const description = response.data.choices[0]?.text?.trim() || '';
+    const description = response.choices[0]?.text?.trim() || '';
     return { description, error: null };
   } catch (error) {
     console.error('Error generating job description:', error);

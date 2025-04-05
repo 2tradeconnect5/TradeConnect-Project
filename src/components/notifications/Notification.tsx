@@ -46,15 +46,13 @@ export default function Notification({
         return 'bg-emerald-50 border-emerald-200';
       case NotificationType.LEAD_ACCEPTED:
         return 'bg-blue-50 border-blue-200';
-      case NotificationType.LEAD_DECLINED:
-        return 'bg-gray-50 border-gray-200';
-      case NotificationType.PAYMENT_CONFIRMATION:
+      case NotificationType.PAYMENT_RECEIVED:
         return 'bg-green-50 border-green-200';
-      case NotificationType.SUBSCRIPTION_RENEWAL:
+      case NotificationType.SUBSCRIPTION_RENEWED:
         return 'bg-purple-50 border-purple-200';
-      case NotificationType.REVIEW_REQUEST:
+      case NotificationType.ACCOUNT_VERIFIED:
         return 'bg-amber-50 border-amber-200';
-      case NotificationType.TRADE_OF_WEEK:
+      case NotificationType.JOB_COMPLETED:
         return 'bg-yellow-50 border-yellow-200';
       default:
         return 'bg-gray-50 border-gray-200';
@@ -80,7 +78,7 @@ export default function Notification({
             </svg>
           </div>
         );
-      case NotificationType.PAYMENT_CONFIRMATION:
+      case NotificationType.PAYMENT_RECEIVED:
         return (
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
             <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +86,7 @@ export default function Notification({
             </svg>
           </div>
         );
-      case NotificationType.TRADE_OF_WEEK:
+      case NotificationType.JOB_COMPLETED:
         return (
           <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
             <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
